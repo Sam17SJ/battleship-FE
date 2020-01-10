@@ -1,0 +1,18 @@
+<p>batalla works!</p>
+<button id="listo" (click)="Listo()">Iniciar juego</button>
+
+    <div id="nBar" class="n-bar"  [hidden]="bar">
+        <div class='n-bar-hijo'><mat-progress-bar mode='indeterminate' ></mat-progress-bar></div>
+    </div>
+<div id="Cont-turnos" >
+    <div name="Turno" [hidden]="turno">
+        <h3>ES SU TURNO</h3>
+    </div>
+    <div name="TurnoE" [hidden]="turnoE">
+        <h3>ES TURNO DEl ENEMIGO</h3>
+    </div>
+
+</div>
+<div class="orden">
+    <div appTablero  (disparo)="onDisparar($event)"> </div>
+</div>

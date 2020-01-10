@@ -1,0 +1,65 @@
+
+<table id="tablaCentral" class="panel">
+    <tr>
+      <td>
+          <table id="tracking-panel" class="panel">
+            <tr>
+              <td class="flex" id="main_bar">
+                <h3>Tablero Amigo</h3>
+              </td>
+            </tr>
+            <tr>
+              <td class="bevel-in">
+                <table id="tracking-grid" class="grid">
+                  <tr>
+                     <p><sub>x</sub>\<sup>y</sup></p>
+                    <td *ngFor="let z of arreglo" style="border: 0;">{{z+1}}</td>
+                  </tr>
+                  <tr *ngFor="let x of grid; index as i">
+                    {{i+1}}
+                    <td *ngFor="let y of x; index as j" [ngClass]="{ 'square--select':y>0}"  id="t1{{i}}{{j}}">
+                      <figure class="circle" ></figure>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+        <td>
+         
+            <table id="tracking-panel" class="panel">
+                <tr>
+                  <td class="flex" id="main_bar">
+                    <h3>Tablero Enemigo</h3>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="bevel-in">
+                    <table id="tracking-grid" class="grid">
+                      <tr>
+                         <p><sub>x</sub>\<sup>y</sup></p>
+                        <td *ngFor="let z of arreglo" style="border: 0;">{{z+1}}</td>
+                      </tr>
+                      <tr *ngFor="let x of arreglo">
+                        {{x+1}}
+                        <td *ngFor="let y of arreglo" class="middle"  id="t2{{x}}{{y}}" (click)="disparar(x,y)">
+                          <figure class="circle" ></figure>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
+
+<!-- Tablero 2 -->
+
+        </td>
+        </tr>
+        </table>
+        <input type="text" id="message" />
+          <button (click)="transmitMessage()">Send</button>
+          
+  
+  

@@ -1,0 +1,57 @@
+
+<table id="tablaCentral" class="panel">
+  <tr>
+    <td>
+        <table id="tracking-panel" class="panel">
+          <tr>
+            <td class="flex" id="main_bar">
+              <h3>Su tablero</h3>
+            </td>
+          </tr>
+          <tr>
+            <td class="bevel-in">
+              <table id="tracking-grid" class="grid">
+                <tr>
+                   <p><sub>x</sub>\<sup>y</sup></p>
+                  <td *ngFor="let z of arreglo" style="border: 0;">{{z+1}}</td>
+                </tr>
+                <tr *ngFor="let x of [0,1,2,3,4,5,6,7,8,9]">
+                  {{x+1}}
+                  <td *ngFor="let y of arreglo" class="middle"  id="t{{x}}{{y}}">
+                    <figure class="circle" ></figure>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td>
+        <form>
+          <table>
+            <tr>
+              <th>Nombre</th>
+              <th>Tamaño</th>
+              <th>Horizontal</th>
+              <th>Posicion X</th>
+              <th>Posicion Y</th>
+            </tr>
+            <tr *ngFor="let b of barcos; index as i">
+              <td>{{b.nombre}}</td>
+              <td>{{b._tamanio}}</td>
+              <td><input id="ho{{i}}" name="ho[]" type="checkbox" (click)="horizontal(i)" ></td>
+              <td><input name="id[]" id='id{{i}}' type="text" value="{{b.id}}" hidden>
+                <input id="X{{i}}" name="X[]" (keyup)="validarBarco($event,i)"  (keydown)="delete($event,i)" type="number" step="1" min="1"  max="{{11-b._tamanio}}" style="width : 60px" required ></td>
+              <td><input id="Y{{i}}" name="Y[]" (keyup)="validarBarco($event,i)" (keydown)="delete($event,i)" type="number" step="1" min="1" max="10" style="width : 60px" required></td>
+            </tr>
+          </table>
+          <br>
+          <input type="button" value="Crear" (click)="guardar()">
+        </form>
+      </td>
+      </tr>
+      </table>
+      <input type="text" id="message" />
+        <button (click)="transmitMessage()">Send</button>
+        
+

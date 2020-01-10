@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import {AuthService} from './auth.service';
+import { from } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'battleship-FE';
+  constructor(private authService: AuthService) {}
 }

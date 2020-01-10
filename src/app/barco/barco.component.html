@@ -1,0 +1,14 @@
+<p>La flota del juego es la siguiente</p>
+
+<table>
+    <tr>
+        <td>No.</td>
+        <td>Nombre</td>
+        <td>Tamaño</td>
+    </tr>
+    <tr *ngFor='let b of barcos'>
+        <td>{{ b.id }}</td>
+        <td>{{ b.nombre }}</td>
+        <td>{{ b._tamanio }}</td>
+    </tr>
+</table>

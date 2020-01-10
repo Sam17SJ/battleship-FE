@@ -1,0 +1,8 @@
+.n-bar-padre{
+    width: 80%;
+    justify-content: center;
+}
+.n-bar-hijo{
+    padding: 5%;
+    margin: 5%;
+}
