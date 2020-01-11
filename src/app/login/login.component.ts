@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
   password = '';
    
   constructor(private authService: AuthService) {
-     
   }
+
   login() {
   this.authService.login(this.username, this.password)
    

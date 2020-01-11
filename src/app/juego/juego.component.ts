@@ -61,7 +61,7 @@ export class JuegoComponent implements OnInit {
       var X=parseInt(x.value)-1;
       var Y=parseInt(y.value)-1;
       var punto =document.getElementById("t"+X+Y);
-      if (punto.getAttribute("class")=='middle'){
+      if (punto.getAttribute("class")=='middle' || punto.getAttribute("class")==""){
         console.log("ENTRO AL IF");
         punto.setAttribute("class","square--select");
         if(ho){
@@ -91,6 +91,7 @@ export class JuegoComponent implements OnInit {
           
         }else{
           var len =11- parseInt(x.getAttribute('max'));
+          console.log(parseInt(x.getAttribute('max')))
           console.log("HOLA SUPERA LOS LIMITES "+len)
           for (var j=1;j<len;j++){
             var punto2=document.getElementById("t"+(X+j)+Y);
@@ -197,29 +198,30 @@ export class JuegoComponent implements OnInit {
     var y=(<HTMLInputElement>document.getElementById('Y'+i));
     var X=parseInt(x.value)-1;
     var Y=parseInt(y.value)-1;
+    console.log(parseInt(y.getAttribute('max')))
+    console.log(parseInt(x.getAttribute('max')))
     if(e.keyCode == 8){
       if(ho){
-        console.log('ENTRO AL DELETE')
-        y.setAttribute("max",x.getAttribute('max'));
-        x.setAttribute("max",""+10);
+        console.log('ENTRO AL DELETE true')
         x.value="";
         y.value="";
         var punto =document.getElementById('t'+X+Y);
         punto.setAttribute("class","middle");
-        for (var j=1;j<parseInt(x.getAttribute('max'))-1;j++){
+        console.log(parseInt(y.getAttribute('max')))
+        console.log(parseInt(x.getAttribute('max')))
+        for (var j=1;j<11-parseInt(y.getAttribute('max'));j++){
+          console.log(j)
           var punto2=document.getElementById("t"+X+(j+Y));
           punto2.setAttribute("class","middle");
 
         }
       }else{
         console.log("ENTRO AL DELETE")
-        x.setAttribute("max",y.getAttribute('max'));
-        y.setAttribute("max",""+10);
         x.value="";
         y.value="";
         var punto =document.getElementById('t'+X+Y);
         punto.setAttribute("class","middle");
-        for (var j=1;j<parseInt(y.getAttribute('max'))-1;j++){
+        for (var j=1;j<11-parseInt(x.getAttribute('max'));j++){
           var punto2=document.getElementById("t"+(X+j)+Y);
           punto2.setAttribute("class","middle");
 
