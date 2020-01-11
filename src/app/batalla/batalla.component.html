@@ -1,8 +1,21 @@
-<p>batalla works!</p>
-<button id="listo" (click)="Listo()">Iniciar juego</button>
+<div class="centrar" [hidden]="ready">
+    <button mat-raised-button id="listo" style="left: 50%;" (click)="Listo()" color="primary" >Iniciar juego</button>
+    <br>
+    <br>
+    <img src="assets/img/ready.jpg" alt="">
+</div>
 
     <div id="nBar" class="n-bar"  [hidden]="bar">
-        <div class='n-bar-hijo'><mat-progress-bar mode='indeterminate' ></mat-progress-bar></div>
+
+        <div class='n-bar-hijo'>
+            <H3>Buscando Contrincante</H3>
+            <mat-progress-bar mode='indeterminate' ></mat-progress-bar>
+            <br>
+            <img src="assets/img/radar.gif" alt="Buscando enemigo">
+        </div>
+        <div class="n-bar-hijo">
+            
+        </div>
     </div>
 <div id="Cont-turnos" >
     <div name="Turno" [hidden]="turno">
@@ -13,6 +26,12 @@
     </div>
 
 </div>
+<div [hidden]="ganar">
+    <img src="assets/img/YouWin.jpg" alt="">
+</div>
+<div [hidden]="perder">
+    <img src="assets/img/GameOver.png" alt="">
+</div>
 <div class="orden">
-    <div appTablero  (disparo)="onDisparar($event)"> </div>
+    <div appTablero  (disparo)="onDisparar($event)" [hidden]="ocultar"> </div>
 </div>

@@ -16,6 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { TableroDirective } from './tablero.directive';
 import { TableroComponent } from './batalla/tablero/tablero.component';
+import { MatToolbarModule, MatProgressSpinnerModule, MatButtonModule, MatGridListModule, MatFormFieldModule, MatCardModule,MatInputModule } from '@angular/material';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { TableroComponent } from './batalla/tablero/tablero.component';
     JuegoComponent,
     BatallaComponent,
     TableroDirective,
-    TableroComponent
+    TableroComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +36,19 @@ import { TableroComponent } from './batalla/tablero/tablero.component';
     FormsModule,
     HttpClientModule,
     MatProgressBarModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatProgressSpinnerModule,
+    FormsModule,
+    MatInputModule,
     RouterModule.forRoot([
       { path: '', redirectTo: '/', pathMatch: 'full' },
+      { path: '', component: LoginComponent , pathMatch: 'full'},
       { path: 'login', component: LoginComponent , pathMatch: 'full'},
+      { path: 'register', component: RegisterComponent},
       { path: 'barcos', component: BarcoComponent },
       { path: 'juego', component: JuegoComponent},
       { path: 'batalla', component: BatallaComponent },

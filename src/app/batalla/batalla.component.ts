@@ -17,7 +17,12 @@ export class BatallaComponent implements OnInit {
   bar:boolean;
   turno=true;
   turnoE=true;
+  ganar=true;
+  perder=true;
+  ocultar=false;
+  ready=false;
   comp:any;
+  vcr:any;
   @ViewChild(TableroDirective, {static: true}) eldinamico: TableroDirective;
   constructor(private cfr: ComponentFactoryResolver) { }
 
@@ -44,12 +49,16 @@ export class BatallaComponent implements OnInit {
             this.mostrarTablero()
           break;
           case 'Esperar':
-            var n =parseInt( sessionStorage.getItem('turno'))
-            n++
-            sessionStorage.setItem('turno',''+n)
-            this.comp.instance.tablero2(datos.x,datos.y,datos.resp)
+/*               this.perder=false
+              this.eldinamico.viewContainerRef.remove */
+              var n =parseInt( sessionStorage.getItem('turno'))
+              n++
+              sessionStorage.setItem('turno',''+n)
+              this.comp.instance.tablero2(datos.x,datos.y,datos.resp)
           break;
           case 'Dispare':
+/*             this.ganar=false
+            this.eldinamico.viewContainerRef.remove */
             var n =parseInt( sessionStorage.getItem('turno'))
             n++
             sessionStorage.setItem('turno',''+n)
@@ -57,7 +66,20 @@ export class BatallaComponent implements OnInit {
             this.turno=false;
             this.comp.instance.tablero1(datos.x,datos.y,datos.resp)
           break;
-
+          case 'Gano':
+            this.turnoE=true;
+            this.turno=true;
+            this.ganar=false
+            this.ocultar=true
+            this.vcr.remove(0)
+          break;
+          case 'Perdio':
+            this.turnoE=true;
+            this.turno=true;
+            this.perder=false;
+            this.ocultar=true
+            this.vcr.remove(0)
+          break;
         }
       }
     );
@@ -73,16 +95,15 @@ export class BatallaComponent implements OnInit {
     user: user
     }
     this.socket.ws.send(JSON.stringify(arr))
-    var btn=document.getElementById('listo')
-    btn.remove();
-    this.bar=false
+    this.ready=true
+    this.bar=false 
 
   }
   mostrarTablero(){
     this.bar=true
     let cf = this.cfr.resolveComponentFactory(TableroComponent)
-    let vcr = this.eldinamico.viewContainerRef;
-    this.comp = vcr.createComponent(cf, 0);
+    this.vcr = this.eldinamico.viewContainerRef;
+    this.comp = this.vcr.createComponent(cf, 0);
     //if (!comp || !comp.instance || !comp.instance.disparo) continue;
     this.comp.instance.disparo.subscribe(msg => this.onDisparar(msg))
   }

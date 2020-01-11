@@ -10,19 +10,14 @@
 <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
 
 <!-- Toolbar -->
+<mat-toolbar color="primary">
+  <button mat-button><span>BATTLESHIP GAME IGF</span> </button>
+  <button mat-button routerLink="barcos" routerLinkActive="active" *ngIf="authService.logIn()"><span>Barcos</span></button>
+  <button mat-button routerLink="juego" routerLinkActive="active" *ngIf="authService.logIn()"> Juego</button>
+  <span class="fill-space"></span>
+  <button mat-button *ngIf="!authService.logIn()"  style="float:right" routerLink="login"  >Iniciar session </button> 
+  <button mat-button *ngIf="!authService.logIn()"  style="float:right" routerLink="register"  >Registrar </button>
+  <button mat-button (click)="authService.logout()" href="#" *ngIf="authService.logIn()" >Cerrar sesion</button> 
 
-  
-  <div style="text-align:center">
-    <ul>
-      <li><a class="nav-link" routerLink="/" routerLinkActive="active">Home</a>  </li>
-      <li><a class="nav-link" routerLink="barcos" routerLinkActive="active" *ngIf="authService.logIn()">Barcos</a>  </li>
-      <li><a class="nav-link" routerLink="juego" routerLinkActive="active" *ngIf="authService.logIn()">Juego</a>  </li>
-      <li style="float:right" *ngIf="!authService.logIn()"> <a class="nav-link"  style="float:right" routerLink="login"  >Login</a> </li>
-      <li style="float:right" > <a class ="nav-link" (click)="authService.logout()" href="#" *ngIf="authService.logIn()" >Logout</a>  </li>
-    </ul>
-    <div class="text-center">
-      <p>
-        Battleship Game IGF
-      </p>
-    </div>
+</mat-toolbar>
      <router-outlet></router-outlet> 

@@ -3,6 +3,19 @@
     justify-content: center;
 }
 .n-bar-hijo{
-    padding: 5%;
+    padding: 2%;
     margin: 5%;
+}
+
+.centrar{
+  position: absolute;
+		/*nos posicionamos en el centro del navegador*/
+		top:20%;
+		left:30%;
+		/*determinamos una anchura*/
+		width:400px;
+		/*indicamos que el margen izquierdo, es la mitad de la anchura*/
+		margin-left:-200px;
+		/*determinamos una altura*/
+		height:300px;
 }

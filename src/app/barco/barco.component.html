@@ -1,14 +1,67 @@
-<p>La flota del juego es la siguiente</p>
-
-<table>
-    <tr>
-        <td>No.</td>
-        <td>Nombre</td>
-        <td>Tamaño</td>
-    </tr>
-    <tr *ngFor='let b of barcos'>
-        <td>{{ b.id }}</td>
-        <td>{{ b.nombre }}</td>
-        <td>{{ b._tamanio }}</td>
-    </tr>
-</table>
+<div style="width: 80%; justify-content: center;margin: 5%;">
+    <H4 style="text-align: center;">Lista de la flota</H4>
+    <!-- <table>
+        <tr>
+            <td>No.</td>
+            <td>Nombre</td>
+            <td>Tamaño</td>
+        </tr>
+        <tr *ngFor='let b of barcos'>
+            <td>{{ b.id }}</td>
+            <td>{{ b.nombre }}</td>
+            <td>{{ b._tamanio }}</td>
+        </tr>
+    </table> -->
+    <mat-grid-list cols="4" rowHeight="100px">
+        <mat-grid-tile
+        [colspan]="1"
+        [rowspan]="1"
+        style="background:burlywood">
+      No.
+    </mat-grid-tile>
+    <mat-grid-tile
+        [colspan]="1"
+        [rowspan]="1"
+        style="background:burlywood">
+      Nombre
+    </mat-grid-tile>
+    <mat-grid-tile
+        [colspan]="1"
+        [rowspan]="1"
+        style="background:burlywood">
+      Tamaño
+    </mat-grid-tile>
+    <mat-grid-tile
+        [colspan]="1"
+        [rowspan]="1"
+        style="background:burlywood">
+      Imagen
+    </mat-grid-tile>
+    <div *ngFor="let b of barcos">
+        <mat-grid-tile
+        [colspan]="1"
+        [rowspan]="1"
+        style="background:#32d9f7">
+      {{b.id}}
+    </mat-grid-tile>
+    <mat-grid-tile
+    [colspan]="1"
+    [rowspan]="1"
+    style="background:lightblue">
+    {{b.nombre}} 
+    </mat-grid-tile>
+    <mat-grid-tile
+    [colspan]="1"
+    [rowspan]="1"
+    style="background:#32d9f7">
+    {{b._tamanio}} puntos
+    </mat-grid-tile>
+    <mat-grid-tile
+    [colspan]="1"
+    [rowspan]="1">
+    <img src="assets/img/{{b.id}}.jpg" style="width: 80%;"> 
+    </mat-grid-tile>
+    </div>
+    
+    </mat-grid-list>
+</div>

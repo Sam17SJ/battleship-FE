@@ -1,4 +1,4 @@
-
+<div style="width: 80%; justify-content: center;margin: 5%;">
 <table id="tablaCentral" class="panel">
   <tr>
     <td>
@@ -45,13 +45,10 @@
               <td><input id="Y{{i}}" name="Y[]" (keyup)="validarBarco($event,i)" (keydown)="delete($event,i)" type="number" step="1" min="1" max="10" style="width : 60px" required></td>
             </tr>
           </table>
-          <br>
-          <input type="button" value="Crear" (click)="guardar()">
+          <br><button style="left:40%; top: 5%;" mat-raised-button (click)="guardar()" color="primary">crear</button>
         </form>
       </td>
       </tr>
       </table>
-      <input type="text" id="message" />
-        <button (click)="transmitMessage()">Send</button>
-        
-
+    </div>
+     

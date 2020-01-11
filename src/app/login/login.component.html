@@ -1,4 +1,4 @@
-<h3>Login</h3>
+<!-- <h3>Login</h3>
 <li><a class="nav-link" *ngIf="authService.logIn()">Profile</a>  </li>
 
 <div>
@@ -13,4 +13,37 @@
   <div class="spacer">
     <button  type="submit" (click)="login()">Login</button>
   </div>
+</div> -->
+<div class="centrar">
+  <div class="cont-hijo">
+<mat-card class="example-card ">
+  <mat-card-header>
+    <mat-card-title>Iniciar sesion</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form">
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+            <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+        <td><mat-form-field class="example-full-width">
+          <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
+        </mat-form-field></td>
+      </tr></table>
+    </form>
+    <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="login()" color="primary">Iniciar sesion</button>
+    <button mat-raised-button routerLink="register" routerLinkActive="active" color="accent">Crear cuenta</button>
+  </mat-card-actions>
+
+</mat-card>
 </div>
+</div>
+

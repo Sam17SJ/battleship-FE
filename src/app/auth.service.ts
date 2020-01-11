@@ -16,13 +16,14 @@ export class AuthService {
     this.http.post(this.api + '/login_check', {username: username,password: password})
     .subscribe((resp: any) => {
      
-      this.router.navigate(['/']);
+      this.router.navigate(['/juego']);
       localStorage.setItem('token', resp.token);
       localStorage.setItem('user_battleship',username);
       
       });
     }
     logout() {
+      this.router.navigate(['/login']);
       localStorage.removeItem('token');
       localStorage.removeItem('user_battleship');
     }

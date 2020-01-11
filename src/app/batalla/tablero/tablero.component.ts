@@ -30,7 +30,7 @@ export class TableroComponent implements OnInit {
   disparar(x,y){
    // alert("Disparo a la cordenada ("+(x+1)+","+(y+1)+")")
    var punto=document.getElementById('t2'+x+y)
-   if(punto.getAttribute('class')=='middle'){
+   if(punto.getAttribute('class')=='middle' || punto.getAttribute('class')==""){
      punto.setAttribute('class','')
     console.log('disparo')
     var turn=parseInt(sessionStorage.getItem('turno'))
@@ -61,15 +61,21 @@ export class TableroComponent implements OnInit {
     if(r==0){
       punto.setAttribute('class',"square--miss figure")
     }
+    if(r==5){
+      punto.setAttribute('class',"square--hit2 figure")
+    }
   }
 
   tablero2(x,y,r){
       var punto=document.getElementById('t2'+x+y)
       if(r==1){
-        punto.setAttribute('class',"square--hit figure")
+        punto.setAttribute('class',"square-- square--hit figure")
       }
       if(r==0){
-        punto.setAttribute('class',"square--miss figure")
+        punto.setAttribute('class',"square-- square--miss figure")
+      }
+      if(r==5){
+        punto.setAttribute('class',"square-- square--hit2 figure")
       }
   }
 }

@@ -245,13 +245,13 @@ export class JuegoComponent implements OnInit {
         }
         if(h){
           d['id']=i.value;
-          d['x']=x.value;
-          d['y']=y.value;
+          d['x']=parseInt( x.value)-1;
+          d['y']=parseInt( y.value)-1;
           d['ho']='H';         
         }else{
           d['id']=i.value;
-          d['x']=x.value;
-          d['y']=y.value;
+          d['x']=parseInt( x.value)-1;
+          d['y']=parseInt( y.value)-1;
           d['ho']='V';
         }
         data.push(d);
